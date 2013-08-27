@@ -11,3 +11,6 @@
 *.lai
 *.la
 *.a
+
+# VS 2012 Files
+.sdf
