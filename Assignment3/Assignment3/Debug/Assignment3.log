@@ -1,8 +1,9 @@
-﻿Build started 9/3/2013 10:19:40 AM.
+﻿Build started 9/10/2013 9:35:09 AM.
      1>Project "C:\Users\200048398\Desktop\cplusplus-fall2013\Assignment3\Assignment3\Assignment3.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 2012\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
          Main.cpp
+     1>c:\users\200048398\desktop\cplusplus-fall2013\assignment3\assignment3\main.cpp(19): warning C4101: 'temp_price' : unreferenced local variable
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 2012\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\200048398\Desktop\cplusplus-fall2013\Assignment3\Debug\Assignment3.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\200048398\Desktop\cplusplus-fall2013\Assignment3\Debug\Assignment3.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\200048398\Desktop\cplusplus-fall2013\Assignment3\Debug\Assignment3.lib" /MACHINE:X86 Debug\Main.obj
          Assignment3.vcxproj -> C:\Users\200048398\Desktop\cplusplus-fall2013\Assignment3\Debug\Assignment3.exe
@@ -10,4 +11,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.51
+Time Elapsed 00:00:01.58
