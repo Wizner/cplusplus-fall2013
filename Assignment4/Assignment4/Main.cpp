@@ -18,12 +18,14 @@ int main()
 	float third_num = 98.76;
 	float total = first_num + second_num + third_num;
 	float average = total / 3;	
-		
+			
 	cout << left << setw(COLUMN_ONE_WIDTH) << "First number is: " << right << setw(COLUMN_TWO_WIDTH) << first_num << endl;
 	cout << left << setw(COLUMN_ONE_WIDTH) << "Second number is: " << right << setw(COLUMN_TWO_WIDTH) << second_num << endl;
 	cout << left << setw(COLUMN_ONE_WIDTH) << "Third number is: " << right << setw(COLUMN_TWO_WIDTH) << third_num << endl;
-	cout << left << setw(COLUMN_ONE_WIDTH) << "Average is: " << right << setw(COLUMN_TWO_WIDTH) << printf("%.1f", average) << endl;
-	cout << left << setw(COLUMN_ONE_WIDTH) << "Total is: " << right << setw(COLUMN_TWO_WIDTH) << printf("%.4f", total) << endl;
+	cout.precision(1);
+	cout << left << setw(COLUMN_ONE_WIDTH) << "Average is: " << right << setw(COLUMN_TWO_WIDTH) << fixed << average << endl;
+	cout.precision(4);
+	cout << left << setw(COLUMN_ONE_WIDTH) << "Total is: " << right << setw(COLUMN_TWO_WIDTH) << fixed << total << endl;
 	
 	_getch();
 	return 0;
