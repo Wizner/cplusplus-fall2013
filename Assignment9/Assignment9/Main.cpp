@@ -30,14 +30,13 @@ int main()
 		cin >> user_temperature;
 
 		//see if user wants to quit the application
-		enum quit_options {q = 0, Q = 0};
-		switch (quit_options())
+		if (user_temperature == "q" || user_temperature == "Q")
 		{
-			case 0:
-				loop1 = false;
-				break;	
-			default:
-				//check to see if input is numeric or not
+			loop1 = false;
+		}
+		else
+		{
+			//check to see if input is numeric or not
 			if (h.IsNumeric(user_temperature))
 			{
 				temperature = h.ConvertToDouble(user_temperature);
@@ -50,40 +49,37 @@ int main()
 				{					
 					//get temperature scale from the user
 					cout << "\nPlease enter the temperature scale your number" << endl
-						<< "is currently in ('f' for fahrenheit, 'c' for celcius): ";
+						 << "is currently in ('f' for fahrenheit, 'c' for celcius): ";
 					cin >> user_temp_scale;
 										
 					//determine which temperature scale the user is using
-					if (user_temp_scale == "f" || user_temp_scale == "F")
+					switch (user_temp_scale)
 					{
-						//end the loop
-						loop2 = false;
+						case 'f': case 'F':
+							//end the loop
+							loop2 = false;
 
-						//set the celcius and fahrenheit values
-						t.set_celcius(temperature);
-						t.set_fahrenheit(t.celcius());
+							//set the celcius and fahrenheit values
+							t.set_celcius(temperature);
+							t.set_fahrenheit(t.celcius());
 
-						//display output
-						cout << endl << endl << setprecision(2) << fixed << t.fahrenheit() << " degrees Fahrenheit is equal to " 
-							<< t.celcius() << " degrees Celcius\n\n\n";
-					}
-					else if (user_temp_scale == "c" || user_temp_scale == "C")
-					{
-						//end the loop
-						loop2 = false;
+							//display output
+							cout << endl << endl << setprecision(2) << fixed << t.fahrenheit() << " degrees Fahrenheit is equal to " 
+								 << t.celcius() << " degrees Celcius\n\n\n";
+						case 'c': case 'C':
+							//end the loop
+							loop2 = false;
 
-						//set the fahrenheit and celcius values
-						t.set_fahrenheit(temperature);
-						t.set_celcius(t.fahrenheit());
+							//set the fahrenheit and celcius values
+							t.set_fahrenheit(temperature);
+							t.set_celcius(t.fahrenheit());
 
-						//display output
-						cout << endl << endl << setprecision(2) << fixed << t.celcius() << " degrees Celcius is equal to " 
-							<< t.fahrenheit() << " degrees Fahrenheit\n\n\n";
-					}
-					else
-					{
-						//if the user entered an invalid option
-						cout << "\n\t\tINVALID INPUT!\n";
+							//display output
+							cout << endl << endl << setprecision(2) << fixed << t.celcius() << " degrees Celcius is equal to " 
+								 << t.fahrenheit() << " degrees Fahrenheit\n\n\n";
+						default:
+							//if the user entered an invalid option
+							cout << "\n\t\tINVALID INPUT!\n";
 					}					
 				}				
 			}
