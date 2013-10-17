@@ -17,7 +17,7 @@ int main()
 	bool loop1 = true;
 	bool loop2 = true;
 	string user_temperature;
-	string user_temp_scale;
+	char user_temp_scale;
 	double temperature;
 	double celcius_temp;
 	double fahrenheit_temp;
@@ -66,6 +66,7 @@ int main()
 							//display output
 							cout << endl << endl << setprecision(2) << fixed << t.fahrenheit() << " degrees Fahrenheit is equal to " 
 								 << t.celcius() << " degrees Celcius\n\n\n";
+							break;
 						case 'c': case 'C':
 							//end the loop
 							loop2 = false;
@@ -77,6 +78,7 @@ int main()
 							//display output
 							cout << endl << endl << setprecision(2) << fixed << t.celcius() << " degrees Celcius is equal to " 
 								 << t.fahrenheit() << " degrees Fahrenheit\n\n\n";
+							break;
 						default:
 							//if the user entered an invalid option
 							cout << "\n\t\tINVALID INPUT!\n";
