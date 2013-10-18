@@ -9,6 +9,11 @@ using namespace std;
 void setConsole();
 
 void goto_xy(int, int);
+double addition(double, double);
+double subtraction(double, double);
+double multiply(double, double);
+double divide(double, double);
+double average(double, double);
 
 int main()
 {
@@ -17,6 +22,8 @@ int main()
 	string number_one = "";
 	string number_two = "";
 	string menu_option;
+	double first_number;
+	double second_number;
 
 	do
 	{
@@ -27,6 +34,7 @@ int main()
 			cout << "\n\t\t\tINVALID INPUT\n\n";
 		}
 	}while (!h.IsNumeric(number_one));
+	first_number = h.ConvertToDouble(number_one);
 	cout << endl;
 
 	do
@@ -38,6 +46,7 @@ int main()
 			cout << "\n\t\t\tINVALID INPUT\n\n";
 		}
 	}while (!h.IsNumeric(number_two));
+	second_number = h.ConvertToDouble(number_two);
 	cout << endl;
 		
 	bool quit = false;
@@ -48,20 +57,38 @@ int main()
 		cout << "2.  Subtract the second number from the first.\n";
 		cout << "3.  Multiply the two numbers.\n";
 		cout << "4.  Divide the first number by the second number.\n";
-		cout << "5.  Average the two numbers.\n";
+		cout << "5.  Average the two numbers.\n\n";
 		cin >> menu_option;		
 
 		if (h.IsNumeric(menu_option))
 		{		
-			int math_option = h.ConvertToInt(menu_option);
-			if (math_option < 1 || math_option > 5)
+			int math_option = h.ConvertToInt(menu_option);			
+			switch (math_option)
 			{
-				cout << "\n\t\t\tINVALID INPUT\n\n";
+				case 1:
+					cout << endl << first_number << " + " << second_number << " = " 
+						 << addition(first_number, second_number) << endl;
+					break;
+				case 2:
+					cout << endl << first_number << " - " << second_number << " = " 
+						 << subtraction(first_number, second_number) << endl;
+					break;
+				case 3:
+					cout << endl << first_number << " * " << second_number << " = " 
+						 << multiply(first_number, second_number) << endl;
+					break;
+				case 4:
+					cout << endl << first_number << " / " << second_number << " = " 
+						 << divide(first_number, second_number) << endl;
+					break;
+				case 5:
+					cout << "\nThe average of the two numbers is: "
+						 << average(first_number, second_number) << endl;
+					break;
+				default:
+					cout << "\n\t\t\tINVALID INPUT\n\n";
 			}
-			else
-			{
-				quit = true;
-			}
+			quit = true;			
 		}
 		else
 		{
@@ -111,4 +138,34 @@ void goto_xy(int x, int y)
 {
 	COORD p = {x, y};
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), p);
+}
+
+double addition(double num_one, double num_two)
+{
+	double total = num_one + num_two;
+	return total;
+}
+
+double subtraction(double num_one, double num_two)
+{
+	double total = num_one - num_two;
+	return total;
+}
+
+double multiply(double num_one, double num_two)
+{
+	double total = num_one * num_two;
+	return total;
+}
+
+double divide(double num_one, double num_two)
+{
+	double total = num_one / num_two;
+	return total;
+}
+
+double average(double num_one, double num_two)
+{
+	double total = (num_one + num_two) / 2;
+	return total;
 }
