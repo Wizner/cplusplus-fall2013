@@ -5,30 +5,46 @@
 using namespace std;
 
 void setConsole();
+string makeStars(int);
+string makeSpaces(int);
 
 int main()
 {
 	setConsole();
 
-	//create two arrays, one of spaces and the other of stars
-	string space[10] = {" ", "  ", "   ", "    ", "     ", "      ", "       ", "        ", "         ", "          "};
-	string stars[10] = {"*", "**", "***", "****", "*****", "******", "*******", "********", "*********", "**********"};
-
 	//declare variables
-	int j = 0;
 	int k = 9;
 	
 	//run loop for output
 	for (int i = 0; i < 10; i++)
 	{		
-		cout << stars[j] << space[k] << stars[k] << space[j] << space[j] << stars[k] << space[k] << stars[j] << endl;
-
-		j++;
+		cout << makeStars(i) << makeSpaces(k) << makeStars(k) << makeSpaces(i) << makeSpaces(i)
+			 << makeStars(k) << makeSpaces(k) << makeStars(i) << endl;
 		k--;
 	}
-	
+
 	_getch();
 	return 0;
+}
+
+string makeStars(int i)
+{
+	string stars = "";
+	for (int j = 0; j <= i; j++)
+	{
+		stars += "*";		
+	}
+	return stars;
+}
+
+string makeSpaces(int i)
+{
+	string spaces = "";
+	for (int j = 0; j <= i; j++)
+	{
+		spaces += " ";
+	}
+	return spaces;
 }
 
 void setConsole()
