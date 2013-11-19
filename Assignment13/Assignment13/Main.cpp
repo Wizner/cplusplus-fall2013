@@ -7,7 +7,7 @@
 using namespace std;
 
 void setConsole();
-void calculate_change(double, int &, int &, int &, int &, int &, int &);
+int calculate_change(int, int &, int &, int &, int &, int &, int &);
 
 int main()
 {
@@ -15,7 +15,8 @@ int main()
 	setConsole();	
 	Helper h;
 	string purchase_price;
-	double cost;
+	int cost;
+	int change;
 	int fives = 0;
 	int ones = 0;
 	int quarters = 0;
@@ -39,17 +40,26 @@ int main()
 		{
 			//check to see if input is numeric or not
 			if (h.IsNumeric(purchase_price))
-			{				
-				cost = h.ConvertToDouble(purchase_price);
-				if (cost > 10.0 || cost < 0)
+			{		
+				//convert data to an integer
+				cost = (int)(h.ConvertToDouble(purchase_price) * 10000);	
+				if (cost > 100000 || cost < 100)
 				{
-					cout << "\n\t\tPLEASE ENTER A VALUE BETWEEN $.01 and $10!\n\n";
+					cout << "\n\t\tPLEASE ENTER A VALUE BETWEEN $.01 and $10.00!\n\n";
 				}
 				else
 				{
-					calculate_change(cost, fives, ones, quarters, dimes, nickles, pennies);
+					change = calculate_change(cost, fives, ones, quarters, dimes, nickles, pennies);
 
-					cout << "\n\tYour change will be:\t\n";
+					//display output
+					if (cost != 10.0)
+					{
+						cout << setprecision(2) << fixed << "\nThe purchase change is $"<< ((double)change) / 10000 << " or:\n";
+					}
+					else
+					{
+						cout << "\n\tYou do not get any change\t\n";
+					}
 
 					if (fives != 0)
 					{
@@ -103,6 +113,7 @@ int main()
 							cout << "\t" << pennies << " - pennies\t\t\n";
 						}
 					}
+					cout << endl;
 				}
 			}			
 			else
@@ -132,13 +143,13 @@ void setConsole()
 	SetConsoleTextAttribute(hConsole, 240); 
 }
 
-void calculate_change(double cost, int &fives, int &ones, int &quarters, int &dimes, int &nickles, int &pennies)
+int calculate_change(int cost, int &fives, int &ones, int &quarters, int &dimes, int &nickles, int &pennies)
 {
 	const int values_length = 6;
 	const int currency_length = 6;
 	int currency[currency_length] = {fives, ones, quarters, dimes, nickles, pennies};
-	double values[values_length] = {5, 1, .25, .1, .05, .01};
-	double change = 10 - cost;
+	int values[values_length] = {50000, 10000, 2500, 1000, 500, 100};
+	int change = 100000 - cost;
 	
 	for (int i = 0; i < values_length; i++)
 	{
@@ -151,4 +162,6 @@ void calculate_change(double cost, int &fives, int &ones, int &quarters, int &di
 	dimes = currency[3];
 	nickles = currency[4];
 	pennies = currency[5];
+	change = 100000 - cost;
+	return change;
 }
