@@ -13,4 +13,6 @@
 *.a
 
 # VS 2012 Files
-.sdf
+*.sdf
+*.idb
+*.pdb
